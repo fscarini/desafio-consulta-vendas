@@ -2,6 +2,7 @@ package com.devsuperior.dsmeta.entities;
 
 import java.time.LocalDate;
 
+import com.devsuperior.dsmeta.dto.SaleDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

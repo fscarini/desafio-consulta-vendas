@@ -6,6 +6,8 @@ import java.time.ZoneId;
 import java.util.Optional;
 
 import com.devsuperior.dsmeta.dto.SaleDTO;
+import com.devsuperior.dsmeta.dto.SellerMinDTO;
+import com.devsuperior.dsmeta.entities.Seller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -36,6 +38,14 @@ public class SaleService {
 				pageable
 		);
 		return result.map(x -> new SaleDTO(x));
+	}
+
+	public Page<SellerMinDTO> getSummary(String initialDate, String finalDate, Pageable pageable){
+		return repository.searchSellersSummary(
+				resolveInitialDate(initialDate),
+				resolveFinalDate(finalDate),
+				pageable
+		);
 	}
 
 	private LocalDate resolveInitialDate(String initialDate){

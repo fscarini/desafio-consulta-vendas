@@ -8,7 +8,7 @@ public record SaleDTO(
         Long id,
         LocalDate date,
         Double amount,
-        String seller
+        String sellerName
 ) {
 
     public SaleDTO(Sale entity){

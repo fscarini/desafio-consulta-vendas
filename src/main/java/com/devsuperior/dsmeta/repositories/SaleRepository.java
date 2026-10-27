@@ -1,7 +1,6 @@
 package com.devsuperior.dsmeta.repositories;
 
 import com.devsuperior.dsmeta.dto.SellerMinDTO;
-import com.devsuperior.dsmeta.entities.Seller;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +9,7 @@ import com.devsuperior.dsmeta.entities.Sale;
 import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface SaleRepository extends JpaRepository<Sale, Long> {
 
@@ -42,6 +42,6 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
                         JOIN sel.sales s
                     WHERE s.date BETWEEN :initialDate AND :finalDate
                     """)
-    Page<SellerMinDTO> searchSellersSummary(LocalDate initialDate, LocalDate finalDate, Pageable pageable);
+    List<SellerMinDTO> searchSellersSummary(LocalDate initialDate, LocalDate finalDate);
 
 }
